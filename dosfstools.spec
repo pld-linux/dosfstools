@@ -1,7 +1,7 @@
 Summary:	Utilities to create and check MS-DOS FAT filesystems
 Summary:	Narzêdzia do tworzenia i sprawdzanai systemów plikowych MS-DOS FAT
 Name:		dosfstools
-Version:	2.6
+Version:	2.8
 Release:	1
 License:	GPL
 Group:		Applications/System
@@ -29,6 +29,9 @@ obs³uguje pusty kod sektora uruchomieniowego.
 %prep
 %setup  -q
 
+cp dosfsck/README README.fsck
+cp mkdosfs/README README.mkdosfs
+
 %build
 %{__make} \
 	OPTFLAGS="%{?debug:-O0 -g}%{!?debug:$RPM_OPT_FLAGS}" \
@@ -36,8 +39,6 @@ obs³uguje pusty kod sektora uruchomieniowego.
 
 %install
 rm -rf $RPM_BUILD_ROOT
-cp dosfsck/README README.fsck
-cp mkdosfs/README README.mkdosfs
 
 %{__make} install \
 	PREFIX=$RPM_BUILD_ROOT \
