@@ -51,6 +51,7 @@ cp mkdosfs/README README.mkdosfs
 
 %build
 %{__make} \
+	CFLAGS="-I /usr/src/linux/include" \
 	OPTFLAGS="%{rpmcflags}" \
 	PREFIX=%{_prefix}
 
