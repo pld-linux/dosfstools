@@ -1,0 +1,14 @@
+--- dosfstools-2.10/dosfsck/dosfsck.h.orig	2003-06-14 22:03:20.000000000 +0200
++++ dosfstools-2.10/dosfsck/dosfsck.h	2004-08-19 20:19:27.005016408 +0200
+@@ -15,6 +15,11 @@
+ #define _LINUX_FS_H             /* hack to avoid inclusion of <linux/fs.h> */
+ #include <linux/msdos_fs.h>
+ 
++#ifndef MSDOS_FAT12
++#define MSDOS_FAT12 MAX_FAT12
++#endif
++#include <asm/byteorder.h>
++
+ /* 2.1 kernels use le16_to_cpu() type functions for CF_LE_W & Co., but don't
+  * export this macros, only __le16_to_cpu(). */
+ #ifndef le16_to_cpu
