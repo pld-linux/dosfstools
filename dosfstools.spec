@@ -1,4 +1,5 @@
-Summary:	Utilities to create and check MS-DOS FAT filesystems.
+Summary:	Utilities to create and check MS-DOS FAT filesystems
+Summary:	Narzêdzia do tworzenia i sprawdzanai systemów plikowych MS-DOS FAT
 Name:		dosfstools
 Version:	2.6
 Release:	1
