@@ -66,14 +66,12 @@ echo ".so mkdosfs.8" > $RPM_BUILD_ROOT%{_mandir}/man8/mkfs.msdos.8
 echo ".so mkdosfs.8" > $RPM_BUILD_ROOT%{_mandir}/man8/mkfs.vfat.8
 bzip2 -dc %{SOURCE1} | tar xf - -C $RPM_BUILD_ROOT%{_mandir}
 
-gzip -9nf CHANGES TODO README.fsck README.mkdosfs
-
 %clean
 rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc *.gz
+%doc CHANGES TODO README.fsck README.mkdosfs
 %attr(755,root,root) %{_sbindir}/*
 %{_mandir}/man8/*
 %lang(pl) %{_mandir}/pl/man8/*
