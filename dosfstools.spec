@@ -7,7 +7,7 @@ Group:		Utilities/System
 Group(pl):	Narzêdzia/System
 Source:		ftp://ftp.uni-erlangen.de/pub/Linux/LOCAL/dosfstools/%{name}-%{version}.src.tar.gz
 Obsoletes:	mkdosfs-ygg
-BuildRoot:	/tmp/%{name}-%{version}-root
+BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
 Inside of this package there are two utilities to create and to
