@@ -6,6 +6,8 @@ License:	GPL
 Group:		Utilities/System
 Group(pl):	Narzêdzia/System
 Source0:	ftp://ftp.uni-erlangen.de/pub/Linux/LOCAL/dosfstools/%{name}-%{version}.src.tar.gz
+Patch0:		dosfstools-llseek.patch
+Patch1:		dosfstools-288.patch
 Obsoletes:	mkdosfs-ygg
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -23,7 +25,9 @@ uruchomieniowego/superbloku u¿ywanego w DOS-ie 3.3 i nowszych oraz
 obs³uguje pusty kod sektora uruchomieniowego.
 
 %prep
-%setup -q
+%setup	 -q
+%patch0 -p1
+%patch1 -p1
 
 %build
 make OPTFLAGS="$RPM_OPT_FLAGS" PREFIX=%{_prefix}
