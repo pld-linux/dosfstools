@@ -34,7 +34,7 @@ cp mkdosfs/README README.mkdosfs
 
 %build
 %{__make} \
-	OPTFLAGS="%{?debug:-O0 -g}%{!?debug:$RPM_OPT_FLAGS}" \
+	OPTFLAGS="%{rpmcflags}" \
 	PREFIX=%{_prefix}
 
 %install
