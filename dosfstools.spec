@@ -1,5 +1,5 @@
 Summary:	Utilities to create and check MS-DOS FAT filesystems
-Summary(es):	Un programa que crea sistemas de archivo de MS-DOS (FAT) en Linux.
+Summary(es):	Un programa que crea sistemas de archivo de MS-DOS (FAT) en Linux
 Summary(pl):	Narzêdzia do tworzenia i sprawdzanai systemów plikowych MS-DOS FAT
 Summary(pt_BR):	Um programa que cria sistemas de arquivo do MS-DOS (FAT) no Linux
 Name:		dosfstools
