@@ -30,14 +30,14 @@ obs³uguje pusty kod sektora uruchomieniowego.
 %patch1 -p1
 
 %build
-make OPTFLAGS="$RPM_OPT_FLAGS" PREFIX=%{_prefix}
+%{__make} OPTFLAGS="$RPM_OPT_FLAGS" PREFIX=%{_prefix}
 
 %install
 rm -rf $RPM_BUILD_ROOT
 cp dosfsck/README README.fsck
 cp mkdosfs/README README.mkdosfs
 
-make install \
+%{__make} install \
 	PREFIX=$RPM_BUILD_ROOT \
 	MANDIR=$RPM_BUILD_ROOT%{_mandir}/man8
 
