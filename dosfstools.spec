@@ -1,10 +1,11 @@
 Summary:	Utilities to create and check MS-DOS FAT filesystems.
 Name:		dosfstools
-Source:		ftp://ftp.uni-erlangen.de/pub/Linux/LOCAL/dosfstools/%{name}-%{version}.src.tar.bz2
 Version:	2.2
 Release:	1
 Copyright:	GPL
-Group:		Applications/System
+Group:		Utilities/System
+Group(pl:	Narzêdzia/System
+Source:		ftp://ftp.uni-erlangen.de/pub/Linux/LOCAL/dosfstools/%{name}-%{version}.src.tar.gz
 Obsoletes:	mkdosfs-ygg
 BuildRoot:	/tmp/%{name}-%{version}-root
 
@@ -36,7 +37,7 @@ echo ".so dosfsck.8" > $RPM_BUILD_ROOT%{_mandir}/man8/fsck.vfat.8
 echo ".so mkdosf.8" > $RPM_BUILD_ROOT%{_mandir}/man8/mkfs.msdos.8
 echo ".so mkdosf.8" > $RPM_BUILD_ROOT%{_mandir}/man8/mkfs.vfat.8
 
-strip --strip-unneeded $RPM_BUILD_ROOT/sbin/*
+strip $RPM_BUILD_ROOT/sbin/*
 
 gzip -9nf $RPM_BUILD_ROOT%{_mandir}/man8/* \
 	CHANGES TODO README.fsck README.mkdosfs
@@ -48,4 +49,4 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc {CHANGES,TODO,README.fsck,README.mkdosfs}.gz
 %attr(755,root,root) /sbin/*
-%{_mandir}/man8/*.gz
+%{_mandir}/man8/*
