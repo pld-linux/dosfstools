@@ -8,6 +8,7 @@ Release:	1
 License:	GPL
 Group:		Applications/System
 Source0:	ftp://ftp.uni-erlangen.de/pub/Linux/LOCAL/dosfstools/%{name}-%{version}.src.tar.gz
+# Source0-md5:	432b88f84de58943da6d21cc88de8b12
 Source1:	http://www.mif.pg.gda.pl/homepages/ankry/man-PLD/%{name}-pl-man-pages.tar.bz2
 # Source1-md5: 28913ed142dac33624b14ce1e1ce8803
 Patch0:		%{name}-errno.patch
