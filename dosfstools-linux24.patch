@@ -1,0 +1,50 @@
+--- dosfstools-2.2/dosfsck/dosfsck.h.linux24	Fri Jul  2 08:38:27 1999
++++ dosfstools-2.2/dosfsck/dosfsck.h	Thu Jun 15 17:51:47 2000
+@@ -11,6 +11,7 @@
+ 
+ #include <sys/types.h>
+ #define _LINUX_STAT_H		/* hack to avoid inclusion of <linux/stat.h> */
++#define _LINUX_STRING_H_        /* hack to avoid inclusion of <linux/string.h> */
+ #include <linux/msdos_fs.h>
+ 
+ /* 2.1 kernels use le16_to_cpu() type functions for CF_LE_W & Co., but don't
+--- dosfstools-2.2/dosfsck/boot.c.linux24	Tue May 11 04:51:06 1999
++++ dosfstools-2.2/dosfsck/boot.c	Thu Jun 15 17:51:47 2000
+@@ -8,6 +8,7 @@
+ #include <stdio.h>
+ #include <string.h>
+ #include <sys/types.h>
++#define _LINUX_STRING_H_
+ #include <linux/msdos_fs.h>
+ 
+ #include "common.h"
+--- dosfstools-2.2/dosfsck/fat.c.linux24	Thu Jun 15 17:52:34 2000
++++ dosfstools-2.2/dosfsck/fat.c	Thu Jun 15 17:52:53 2000
+@@ -11,6 +11,7 @@
+ #include <string.h>
+ #include <unistd.h>
+ 
++#define _LINUX_STRING_H_        /* hack to avoid inclusion of <linux/string.h> */
+ #include <linux/msdos_fs.h>
+ 
+ #include "common.h"
+--- dosfstools-2.2/dosfsck/file.c.linux24	Thu Jun 15 17:53:07 2000
++++ dosfstools-2.2/dosfsck/file.c	Thu Jun 15 17:53:14 2000
+@@ -12,6 +12,7 @@
+ #include <ctype.h>
+ #include <unistd.h>
+ 
++#define _LINUX_STRING_H_        /* hack to avoid inclusion of <linux/string.h> */
+ #include <linux/msdos_fs.h>
+ 
+ #include "common.h"
+--- dosfstools-2.2/dosfsck/file.h.linux24	Thu Jun 15 17:53:19 2000
++++ dosfstools-2.2/dosfsck/file.h	Thu Jun 15 17:53:24 2000
+@@ -6,6 +6,7 @@
+ #ifndef _FILE_H
+ #define _FILE_H
+ 
++#define _LINUX_STRING_H_        /* hack to avoid inclusion of <linux/string.h> */
+ #include <linux/msdos_fs.h>
+ 
+ 
