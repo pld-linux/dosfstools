@@ -4,7 +4,7 @@ Version:	2.2
 Release:	1
 Copyright:	GPL
 Group:		Utilities/System
-Group(pl:	Narzêdzia/System
+Group(pl):	Narzêdzia/System
 Source:		ftp://ftp.uni-erlangen.de/pub/Linux/LOCAL/dosfstools/%{name}-%{version}.src.tar.gz
 Obsoletes:	mkdosfs-ygg
 BuildRoot:	/tmp/%{name}-%{version}-root
