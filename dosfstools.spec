@@ -16,6 +16,13 @@ Linux.  This version uses the enhanced boot sector/superblock
 format of DOS 3.3+ as well as provides a default dummy boot sector
 code.
 
+%description -l pl
+W pakiecie znajduj± siê dwa narzêdzia s³u¿±ce do tworzenia i sprawdzania
+systemów plików FAT na dyskach twardych lub dyskietkach pod Linuksem.
+Wersja ta u¿ywa ulepszonego formatu sektora uruchomieniowego/superbloku
+u¿ywanego w DOS-ie 3.3 i nowszych oraz obs³uguje pusty kod sektora 
+uruchomieniowego.
+
 %prep
 %setup -q
 
