@@ -1,0 +1,10 @@
+--- dosfstools-2.8/mkdosfs/mkdosfs.c~	2000-11-28 16:23:58.000000000 +0000
++++ dosfstools-2.8/mkdosfs/mkdosfs.c	2003-05-09 13:00:45.000000000 +0000
+@@ -64,6 +64,7 @@
+ #include <sys/types.h>
+ #include <unistd.h>
+ #include <time.h>
++#include <errno.h>
+ 
+ #if __BYTE_ORDER == __BIG_ENDIAN
+ 
