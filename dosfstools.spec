@@ -45,7 +45,7 @@ O pacote dosfstools deve ser instalado se sua máquina precisa usar
 sistemas de arquivo MS-DOS.
 
 %prep
-%setup  -q
+%setup -q
 %patch0 -p1
 
 cp dosfsck/README README.fsck
