@@ -1,15 +1,12 @@
 Summary:	Utilities to create and check MS-DOS FAT filesystems.
 Name:		dosfstools
-Version:	2.2
-Release:	9
+Version:	2.6
+Release:	1
 License:	GPL
 Group:		Applications/System
 Group(de):	Applikationen/System
 Group(pl):	Aplikacje/System
 Source0:	ftp://ftp.uni-erlangen.de/pub/Linux/LOCAL/dosfstools/%{name}-%{version}.src.tar.gz
-Patch0:		%{name}-llseek.patch
-Patch1:		%{name}-288.patch
-Patch2:		%{name}-linux24.patch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 Obsoletes:	mkdosfs-ygg
 
@@ -30,9 +27,6 @@ obs³uguje pusty kod sektora uruchomieniowego.
 
 %prep
 %setup  -q
-%patch0 -p1
-%patch1 -p1
-%patch2 -p1
 
 %build
 %{__make} \
