@@ -31,7 +31,7 @@ obs³uguje pusty kod sektora uruchomieniowego.
 
 %build
 %{__make} \
-	OPTFLAGS="%{?debug:-O -g}%{!?debug:$RPM_OPT_FLAGS}" \
+	OPTFLAGS="%{?debug:-O0 -g}%{!?debug:$RPM_OPT_FLAGS}" \
 	PREFIX=%{_prefix}
 
 %install
