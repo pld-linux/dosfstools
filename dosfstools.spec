@@ -3,15 +3,14 @@ Summary(es):	Un programa que crea sistemas de archivo de MS-DOS (FAT) en Linux
 Summary(pl):	Narzêdzia do tworzenia i sprawdzania systemów plikowych MS-DOS FAT
 Summary(pt_BR):	Um programa que cria sistemas de arquivo do MS-DOS (FAT) no Linux
 Name:		dosfstools
-Version:	2.10
-Release:	2
+Version:	2.11
+Release:	1
 License:	GPL
 Group:		Applications/System
 Source0:	ftp://ftp.uni-erlangen.de/pub/Linux/LOCAL/dosfstools/%{name}-%{version}.src.tar.gz
-# Source0-md5:	59a02f311a891af8787c4c9e28c6b89b
+# Source0-md5:	407d405ade410f7597d364ab5dc8c9f6
 Source1:	http://www.mif.pg.gda.pl/homepages/ankry/man-PLD/%{name}-pl-man-pages.tar.bz2
 # Source1-md5:	28913ed142dac33624b14ce1e1ce8803
-Patch0:		%{name}-llh.patch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 Obsoletes:	mkdosfs-ygg
 
@@ -46,7 +45,6 @@ sistemas de arquivo MS-DOS.
 
 %prep
 %setup -q
-%patch0 -p1
 
 cp dosfsck/README README.fsck
 cp mkdosfs/README README.mkdosfs
@@ -69,6 +67,7 @@ echo ".so dosfsck.8" > $RPM_BUILD_ROOT%{_mandir}/man8/fsck.vfat.8
 echo ".so mkdosfs.8" > $RPM_BUILD_ROOT%{_mandir}/man8/mkfs.msdos.8
 echo ".so mkdosfs.8" > $RPM_BUILD_ROOT%{_mandir}/man8/mkfs.vfat.8
 bzip2 -dc %{SOURCE1} | tar xf - -C $RPM_BUILD_ROOT%{_mandir}
+rm -f $RPM_BUILD_ROOT%{_mandir}/README*
 
 %clean
 rm -rf $RPM_BUILD_ROOT
