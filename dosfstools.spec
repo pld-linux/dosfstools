@@ -2,26 +2,25 @@ Summary:	Utilities to create and check MS-DOS FAT filesystems.
 Name:		dosfstools
 Version:	2.2
 Release:	1
-Copyright:	GPL
+License:	GPL
 Group:		Utilities/System
 Group(pl):	Narzêdzia/System
-Source:		ftp://ftp.uni-erlangen.de/pub/Linux/LOCAL/dosfstools/%{name}-%{version}.src.tar.gz
+Source0:	ftp://ftp.uni-erlangen.de/pub/Linux/LOCAL/dosfstools/%{name}-%{version}.src.tar.gz
 Obsoletes:	mkdosfs-ygg
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
-Inside of this package there are two utilities to create and to
-check MS-DOS FAT filesystems on either harddisks or floppies under
-Linux.  This version uses the enhanced boot sector/superblock
-format of DOS 3.3+ as well as provides a default dummy boot sector
-code.
+Inside of this package there are two utilities to create and to check
+MS-DOS FAT filesystems on either harddisks or floppies under Linux.
+This version uses the enhanced boot sector/superblock format of DOS
+3.3+ as well as provides a default dummy boot sector code.
 
 %description -l pl
-W pakiecie znajduj± siê dwa narzêdzia s³u¿±ce do tworzenia i sprawdzania
-systemów plików FAT na dyskach twardych lub dyskietkach pod Linuksem.
-Wersja ta u¿ywa ulepszonego formatu sektora uruchomieniowego/superbloku
-u¿ywanego w DOS-ie 3.3 i nowszych oraz obs³uguje pusty kod sektora 
-uruchomieniowego.
+W pakiecie znajduj± siê dwa narzêdzia s³u¿±ce do tworzenia i
+sprawdzania systemów plików FAT na dyskach twardych lub dyskietkach
+pod Linuksem. Wersja ta u¿ywa ulepszonego formatu sektora
+uruchomieniowego/superbloku u¿ywanego w DOS-ie 3.3 i nowszych oraz
+obs³uguje pusty kod sektora uruchomieniowego.
 
 %prep
 %setup -q
