@@ -2,12 +2,13 @@ Summary:	Utilities to create and check MS-DOS FAT filesystems
 Summary(pl):	Narzêdzia do tworzenia i sprawdzanai systemów plikowych MS-DOS FAT
 Name:		dosfstools
 Version:	2.8
-Release:	1
+Release:	2
 License:	GPL
 Group:		Applications/System
 Group(de):	Applikationen/System
 Group(pl):	Aplikacje/System
 Source0:	ftp://ftp.uni-erlangen.de/pub/Linux/LOCAL/dosfstools/%{name}-%{version}.src.tar.gz
+Source1:	%{name}-pl-man-pages.tar.bz2
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 Obsoletes:	mkdosfs-ygg
 
@@ -47,8 +48,9 @@ rm -rf $RPM_BUILD_ROOT
 rm -f $RPM_BUILD_ROOT%{_mandir}/man8/*.{msdos,vfat}.8
 echo ".so dosfsck.8" > $RPM_BUILD_ROOT%{_mandir}/man8/fsck.msdos.8
 echo ".so dosfsck.8" > $RPM_BUILD_ROOT%{_mandir}/man8/fsck.vfat.8
-echo ".so mkdosf.8" > $RPM_BUILD_ROOT%{_mandir}/man8/mkfs.msdos.8
-echo ".so mkdosf.8" > $RPM_BUILD_ROOT%{_mandir}/man8/mkfs.vfat.8
+echo ".so mkdosfs.8" > $RPM_BUILD_ROOT%{_mandir}/man8/mkfs.msdos.8
+echo ".so mkdosfs.8" > $RPM_BUILD_ROOT%{_mandir}/man8/mkfs.vfat.8
+bzip2 -dc %{SOURCE1} | tar xf - -C $RPM_BUILD_ROOT%{_mandir}
 
 gzip -9nf CHANGES TODO README.fsck README.mkdosfs
 
@@ -60,3 +62,4 @@ rm -rf $RPM_BUILD_ROOT
 %doc *.gz
 %attr(755,root,root) %{_sbindir}/*
 %{_mandir}/man8/*
+%lang(pl) %{_mandir}/pl/man8/*
