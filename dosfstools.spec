@@ -9,6 +9,7 @@ License:	GPL
 Group:		Applications/System
 Source0:	ftp://ftp.uni-erlangen.de/pub/Linux/LOCAL/dosfstools/%{name}-%{version}.src.tar.gz
 Source1:	http://www.mif.pg.gda.pl/homepages/ankry/man-PLD/%{name}-pl-man-pages.tar.bz2
+# Source1-md5: 28913ed142dac33624b14ce1e1ce8803
 Patch0:		%{name}-errno.patch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 Obsoletes:	mkdosfs-ygg
