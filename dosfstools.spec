@@ -51,6 +51,7 @@ cp mkdosfs/README README.mkdosfs
 
 %build
 %{__make} \
+	CC="%{__cc}" \
 	OPTFLAGS="%{rpmcflags} -D_FILE_OFFSET_BITS=64 -D_LARGEFILE64_SOURCE" \
 	PREFIX=%{_prefix}
 
