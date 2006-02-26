@@ -1,0 +1,2 @@
+- %build fixed (it requires llh:<linux/msdos_fs.h>, rev 1.6).
+  mmazur, when you release llh?
