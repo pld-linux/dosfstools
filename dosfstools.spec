@@ -1,7 +1,7 @@
 Summary:	Utilities to create and check MS-DOS FAT filesystems
-Summary(es.UTF-8):   Un programa que crea sistemas de archivo de MS-DOS (FAT) en Linux
-Summary(pl.UTF-8):   Narzędzia do tworzenia i sprawdzania systemów plikowych MS-DOS FAT
-Summary(pt_BR.UTF-8):   Um programa que cria sistemas de arquivo do MS-DOS (FAT) no Linux
+Summary(es.UTF-8):	Un programa que crea sistemas de archivo de MS-DOS (FAT) en Linux
+Summary(pl.UTF-8):	Narzędzia do tworzenia i sprawdzania systemów plikowych MS-DOS FAT
+Summary(pt_BR.UTF-8):	Um programa que cria sistemas de arquivo do MS-DOS (FAT) no Linux
 Name:		dosfstools
 Version:	2.11
 Release:	3
