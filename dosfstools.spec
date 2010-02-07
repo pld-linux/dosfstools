@@ -3,16 +3,17 @@ Summary(es.UTF-8):	Un programa que crea sistemas de archivo de MS-DOS (FAT) en L
 Summary(pl.UTF-8):	Narzędzia do tworzenia i sprawdzania systemów plikowych MS-DOS FAT
 Summary(pt_BR.UTF-8):	Um programa que cria sistemas de arquivo do MS-DOS (FAT) no Linux
 Name:		dosfstools
-Version:	2.11
-Release:	4
-License:	GPL
+Version:	3.0.9
+Release:	1
+License:	GPL v3
 Group:		Applications/System
-Source0:	ftp://ftp.uni-erlangen.de/pub/Linux/LOCAL/dosfstools/%{name}-%{version}.src.tar.gz
-# Source0-md5:	407d405ade410f7597d364ab5dc8c9f6
+Source0:	http://www.daniel-baumann.ch/software/dosfstools/%{name}-%{version}.tar.bz2
+# Source0-md5:	7f159ec44d3b9c502904bab0236050e4
 Source1:	http://www.mif.pg.gda.pl/homepages/ankry/man-PLD/%{name}-pl-man-pages.tar.bz2
 # Source1-md5:	28913ed142dac33624b14ce1e1ce8803
-BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
+URL:		http://www.daniel-baumann.ch/software/dosfstools/
 Obsoletes:	mkdosfs-ygg
+BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		_sbindir	/sbin
 
@@ -46,9 +47,6 @@ sistemas de arquivo MS-DOS.
 %prep
 %setup -q
 
-cp dosfsck/README README.fsck
-cp mkdosfs/README README.mkdosfs
-
 %build
 %{__make} \
 	CC="%{__cc}" \
@@ -58,7 +56,7 @@ cp mkdosfs/README README.mkdosfs
 %install
 rm -rf $RPM_BUILD_ROOT
 
-%{__make} install \
+%{__make} install-bin install-man \
 	PREFIX=$RPM_BUILD_ROOT \
 	MANDIR=$RPM_BUILD_ROOT%{_mandir}/man8
 
@@ -75,7 +73,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc CHANGES TODO README.fsck README.mkdosfs
+%doc ChangeLog doc/*
 %attr(755,root,root) %{_sbindir}/*
 %{_mandir}/man8/*
 %lang(pl) %{_mandir}/pl/man8/*
