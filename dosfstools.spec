@@ -3,15 +3,16 @@ Summary(es.UTF-8):	Un programa que crea sistemas de archivo de MS-DOS (FAT) en L
 Summary(pl.UTF-8):	Narzędzia do tworzenia i sprawdzania systemów plikowych MS-DOS FAT
 Summary(pt_BR.UTF-8):	Um programa que cria sistemas de arquivo do MS-DOS (FAT) no Linux
 Name:		dosfstools
-Version:	3.0.9
+Version:	3.0.10
 Release:	1
 License:	GPL v3
 Group:		Applications/System
 Source0:	http://www.daniel-baumann.ch/software/dosfstools/%{name}-%{version}.tar.bz2
-# Source0-md5:	7f159ec44d3b9c502904bab0236050e4
+# Source0-md5:	be73c6077cc5f784f0bb4d3901c88792
 Source1:	http://www.mif.pg.gda.pl/homepages/ankry/man-PLD/%{name}-pl-man-pages.tar.bz2
 # Source1-md5:	28913ed142dac33624b14ce1e1ce8803
 URL:		http://www.daniel-baumann.ch/software/dosfstools/
+BuildRequires:	rpmbuild(macros) >= 1.402
 Obsoletes:	mkdosfs-ygg
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -58,13 +59,8 @@ rm -rf $RPM_BUILD_ROOT
 
 %{__make} install-bin install-man \
 	PREFIX=$RPM_BUILD_ROOT \
-	MANDIR=$RPM_BUILD_ROOT%{_mandir}/man8
+	MANDIR=$RPM_BUILD_ROOT%{_mandir}
 
-rm -f $RPM_BUILD_ROOT%{_mandir}/man8/*.{msdos,vfat}.8
-echo ".so dosfsck.8" > $RPM_BUILD_ROOT%{_mandir}/man8/fsck.msdos.8
-echo ".so dosfsck.8" > $RPM_BUILD_ROOT%{_mandir}/man8/fsck.vfat.8
-echo ".so mkdosfs.8" > $RPM_BUILD_ROOT%{_mandir}/man8/mkfs.msdos.8
-echo ".so mkdosfs.8" > $RPM_BUILD_ROOT%{_mandir}/man8/mkfs.vfat.8
 bzip2 -dc %{SOURCE1} | tar xf - -C $RPM_BUILD_ROOT%{_mandir}
 rm -f $RPM_BUILD_ROOT%{_mandir}/README*
 
@@ -74,6 +70,18 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %doc ChangeLog doc/*
-%attr(755,root,root) %{_sbindir}/*
-%{_mandir}/man8/*
+%attr(755,root,root) %{_sbindir}/dosfsck
+%attr(755,root,root) %{_sbindir}/dosfslabel
+%attr(755,root,root) %{_sbindir}/fsck.msdos
+%attr(755,root,root) %{_sbindir}/fsck.vfat
+%attr(755,root,root) %{_sbindir}/mkdosfs
+%attr(755,root,root) %{_sbindir}/mkfs.msdos
+%attr(755,root,root) %{_sbindir}/mkfs.vfat
+%{_mandir}/man8/dosfsck.8*
+%{_mandir}/man8/dosfslabel.8*
+%{_mandir}/man8/fsck.msdos.8*
+%{_mandir}/man8/fsck.vfat.8*
+%{_mandir}/man8/mkdosfs.8*
+%{_mandir}/man8/mkfs.msdos.8*
+%{_mandir}/man8/mkfs.vfat.8*
 %lang(pl) %{_mandir}/pl/man8/*
