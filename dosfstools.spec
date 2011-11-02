@@ -3,12 +3,12 @@ Summary(es.UTF-8):	Un programa que crea sistemas de archivo de MS-DOS (FAT) en L
 Summary(pl.UTF-8):	Narzędzia do tworzenia i sprawdzania systemów plikowych MS-DOS FAT
 Summary(pt_BR.UTF-8):	Um programa que cria sistemas de arquivo do MS-DOS (FAT) no Linux
 Name:		dosfstools
-Version:	3.0.11
+Version:	3.0.12
 Release:	1
 License:	GPL v3
 Group:		Applications/System
 Source0:	http://www.daniel-baumann.ch/software/dosfstools/%{name}-%{version}.tar.bz2
-# Source0-md5:	8d2211d5bd813164e20740e7c852aa06
+# Source0-md5:	5c7c2adac9eae4afbe1f16443142b566
 Source1:	http://www.mif.pg.gda.pl/homepages/ankry/man-PLD/%{name}-pl-man-pages.tar.bz2
 # Source1-md5:	28913ed142dac33624b14ce1e1ce8803
 URL:		http://www.daniel-baumann.ch/software/dosfstools/
