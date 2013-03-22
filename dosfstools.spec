@@ -5,7 +5,7 @@ Summary(pt_BR.UTF-8):	Um programa que cria sistemas de arquivo do MS-DOS (FAT) n
 Name:		dosfstools
 Version:	3.0.16
 Release:	1
-License:	GPL v3
+License:	GPL v3+
 Group:		Applications/System
 Source0:	http://www.daniel-baumann.ch/files/software/dosfstools/%{name}-%{version}.tar.xz
 # Source0-md5:	27aca18aeb8bb0851ccaeb47e7416a6e
