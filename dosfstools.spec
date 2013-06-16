@@ -59,7 +59,7 @@ sistemas de arquivo MS-DOS.
 %install
 rm -rf $RPM_BUILD_ROOT
 
-%{__make} install-bin install-man install-symlinks \
+%{__make} -j1 install-bin install-man install-symlinks \
 	DESTDIR=$RPM_BUILD_ROOT \
 	PREFIX=%{_prefix} \
 	SBINDIR=/sbin \
