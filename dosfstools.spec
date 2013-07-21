@@ -3,12 +3,12 @@ Summary(es.UTF-8):	Un programa que crea sistemas de archivo de MS-DOS (FAT) en L
 Summary(pl.UTF-8):	Narzędzia do tworzenia i sprawdzania systemów plikowych MS-DOS FAT
 Summary(pt_BR.UTF-8):	Um programa que cria sistemas de arquivo do MS-DOS (FAT) no Linux
 Name:		dosfstools
-Version:	3.0.20
+Version:	3.0.22
 Release:	1
 License:	GPL v3+
 Group:		Applications/System
 Source0:	http://www.daniel-baumann.ch/files/software/dosfstools/%{name}-%{version}.tar.xz
-# Source0-md5:	b34dcf1d22bc1074ebdba68799fa3cad
+# Source0-md5:	301f01ca8a734011c0257134bcf475c8
 Source1:	http://www.mif.pg.gda.pl/homepages/ankry/man-PLD/%{name}-pl-man-pages.tar.bz2
 # Source1-md5:	28913ed142dac33624b14ce1e1ce8803
 URL:		http://www.daniel-baumann.ch/software/dosfstools/
@@ -64,10 +64,6 @@ rm -rf $RPM_BUILD_ROOT
 	PREFIX=%{_prefix} \
 	SBINDIR=/sbin \
 	MANDIR=%{_mandir}
-
-# missing by install-symlinks
-[ ! -e $RPM_BUILD_ROOT%{_mandir}/man8/dosfslabel.8 ] || exit 1
-echo '.so man8/fatlabel.8' >$RPM_BUILD_ROOT%{_mandir}/man8/dosfslabel.8
 
 bzip2 -dc %{SOURCE1} | tar xf - -C $RPM_BUILD_ROOT%{_mandir}
 %{__rm} $RPM_BUILD_ROOT%{_mandir}/README*
