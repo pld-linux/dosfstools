@@ -3,17 +3,20 @@ Summary(es.UTF-8):	Un programa que crea sistemas de archivo de MS-DOS (FAT) en L
 Summary(pl.UTF-8):	Narzędzia do tworzenia i sprawdzania systemów plikowych MS-DOS FAT
 Summary(pt_BR.UTF-8):	Um programa que cria sistemas de arquivo do MS-DOS (FAT) no Linux
 Name:		dosfstools
-Version:	3.0.26
-Release:	2
+Version:	4.1
+Release:	1
 License:	GPL v3+
 Group:		Applications/System
-Source0:	http://www.daniel-baumann.ch/files/software/dosfstools/%{name}-%{version}.tar.xz
-# Source0-md5:	45012f5f56f2aae3afcd62120b9e5a08
+#Source0Download: https://github.com/dosfstools/dosfstools/releases
+Source0:	https://github.com/dosfstools/dosfstools/releases/download/v%{version}/%{name}-%{version}.tar.xz
+# Source0-md5:	07a1050db1a898e9a2e03b0c4569c4bd
 Source1:	http://www.mif.pg.gda.pl/homepages/ankry/man-PLD/%{name}-pl-man-pages.tar.bz2
 # Source1-md5:	28913ed142dac33624b14ce1e1ce8803
-URL:		http://www.daniel-baumann.ch/software/dosfstools/
+URL:		https://github.com/dosfstools/dosfstools
+BuildRequires:	pkgconfig
 BuildRequires:	rpmbuild(macros) >= 1.402
 BuildRequires:	tar >= 1:1.22
+BuildRequires:	udev-devel
 BuildRequires:	xz
 Obsoletes:	mkdosfs-ygg
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -51,19 +54,16 @@ sistemas de arquivo MS-DOS.
 %setup -q
 
 %build
-%{__make} \
-	CC="%{__cc}" \
-	OPTFLAGS="%{rpmcflags} -D_FILE_OFFSET_BITS=64 -D_LARGEFILE64_SOURCE" \
-	PREFIX=%{_prefix}
+%configure \
+	--enable-compat-symlinks
+
+%{__make}
 
 %install
 rm -rf $RPM_BUILD_ROOT
 
-%{__make} -j1 install-bin install-man install-symlinks \
-	DESTDIR=$RPM_BUILD_ROOT \
-	PREFIX=%{_prefix} \
-	SBINDIR=/sbin \
-	MANDIR=%{_mandir}
+%{__make} install \
+	DESTDIR=$RPM_BUILD_ROOT
 
 bzip2 -dc %{SOURCE1} | tar xf - -C $RPM_BUILD_ROOT%{_mandir}
 %{__rm} $RPM_BUILD_ROOT%{_mandir}/README*
@@ -73,7 +73,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc ChangeLog doc/*
+%doc ChangeLog NEWS README TODO doc/*
 %attr(755,root,root) %{_sbindir}/dosfsck
 %attr(755,root,root) %{_sbindir}/dosfslabel
 %attr(755,root,root) %{_sbindir}/fatlabel
@@ -94,5 +94,4 @@ rm -rf $RPM_BUILD_ROOT
 %{_mandir}/man8/mkfs.fat.8*
 %{_mandir}/man8/mkfs.msdos.8*
 %{_mandir}/man8/mkfs.vfat.8*
-%lang(de) %{_mandir}/de/man8/*
 %lang(pl) %{_mandir}/pl/man8/*
