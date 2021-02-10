@@ -3,20 +3,19 @@ Summary(es.UTF-8):	Un programa que crea sistemas de archivo de MS-DOS (FAT) en L
 Summary(pl.UTF-8):	Narzędzia do tworzenia i sprawdzania systemów plikowych MS-DOS FAT
 Summary(pt_BR.UTF-8):	Um programa que cria sistemas de arquivo do MS-DOS (FAT) no Linux
 Name:		dosfstools
-Version:	4.1
+Version:	4.2
 Release:	1
 License:	GPL v3+
 Group:		Applications/System
 #Source0Download: https://github.com/dosfstools/dosfstools/releases
-Source0:	https://github.com/dosfstools/dosfstools/releases/download/v%{version}/%{name}-%{version}.tar.xz
-# Source0-md5:	07a1050db1a898e9a2e03b0c4569c4bd
+Source0:	https://github.com/dosfstools/dosfstools/releases/download/v%{version}/%{name}-%{version}.tar.gz
+# Source0-md5:	49c8e457327dc61efab5b115a27b087a
 Source1:	http://www.mif.pg.gda.pl/homepages/ankry/man-PLD/%{name}-pl-man-pages.tar.bz2
 # Source1-md5:	28913ed142dac33624b14ce1e1ce8803
 URL:		https://github.com/dosfstools/dosfstools
 BuildRequires:	pkgconfig
 BuildRequires:	rpmbuild(macros) >= 1.402
 BuildRequires:	tar >= 1:1.22
-BuildRequires:	udev-devel
 BuildRequires:	xz
 Obsoletes:	mkdosfs-ygg
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -68,12 +67,14 @@ rm -rf $RPM_BUILD_ROOT
 bzip2 -dc %{SOURCE1} | tar xf - -C $RPM_BUILD_ROOT%{_mandir}
 %{__rm} $RPM_BUILD_ROOT%{_mandir}/README*
 
+%{__rm} -r $RPM_BUILD_ROOT%{_docdir}/%{name}
+
 %clean
 rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc ChangeLog NEWS README TODO doc/*
+%doc ChangeLog NEWS README doc/*
 %attr(755,root,root) %{_sbindir}/dosfsck
 %attr(755,root,root) %{_sbindir}/dosfslabel
 %attr(755,root,root) %{_sbindir}/fatlabel
