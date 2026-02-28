@@ -4,7 +4,7 @@ Summary(pl.UTF-8):	Narzędzia do tworzenia i sprawdzania systemów plikowych MS-
 Summary(pt_BR.UTF-8):	Um programa que cria sistemas de arquivo do MS-DOS (FAT) no Linux
 Name:		dosfstools
 Version:	4.2
-Release:	1
+Release:	2
 License:	GPL v3+
 Group:		Applications/System
 #Source0Download: https://github.com/dosfstools/dosfstools/releases
