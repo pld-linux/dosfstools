@@ -1,3 +1,7 @@
+#
+# Conditional build:
+%bcond_without	tests	# unit tests
+#
 Summary:	Utilities to create and check MS-DOS FAT filesystems
 Summary(es.UTF-8):	Un programa que crea sistemas de archivo de MS-DOS (FAT) en Linux
 Summary(pl.UTF-8):	Narzędzia do tworzenia i sprawdzania systemów plikowych MS-DOS FAT
@@ -13,10 +17,8 @@ Source0:	https://github.com/dosfstools/dosfstools/releases/download/v%{version}/
 Source1:	http://www.mif.pg.gda.pl/homepages/ankry/man-PLD/%{name}-pl-man-pages.tar.bz2
 # Source1-md5:	28913ed142dac33624b14ce1e1ce8803
 URL:		https://github.com/dosfstools/dosfstools
-BuildRequires:	pkgconfig
 BuildRequires:	rpmbuild(macros) >= 1.402
-BuildRequires:	tar >= 1:1.22
-BuildRequires:	xz
+%{?with_tests:BuildRequires:	xxd}
 Obsoletes:	mkdosfs-ygg
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -57,6 +59,8 @@ sistemas de arquivo MS-DOS.
 	--enable-compat-symlinks
 
 %{__make}
+
+%{?with_tests:%{__make} check}
 
 %install
 rm -rf $RPM_BUILD_ROOT
